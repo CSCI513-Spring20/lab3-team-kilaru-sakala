@@ -34,11 +34,11 @@ public class Garden extends Application{
 		scene.setOnMousePressed(mouseHandler);
 	    scene.setOnMouseReleased(mouseHandler);
 		
-		flower =  new Flower(new Point2D(20,20),5);
+		flower =  new Flower(new Point2D(20,20),10);
 		myComponents.add(flower);
 		root.getChildren().add(flower.getCircle());
 		
-		flowerBed = new FlowerBed(new Point2D(20,20),60,30);
+		flowerBed = new FlowerBed(new Point2D(50,25),200,100);
 		myComponents.add(flowerBed);
 		root.getChildren().add(flowerBed.getRectangle());
 		
@@ -79,6 +79,10 @@ public class Garden extends Application{
         			for(GardenComponent container: myComponents){
             			if (container instanceof FlowerBed && container.ContainsPoint(clickPoint)){
             				((FlowerBed)container).addChild(currentComponent);
+            				break;
+            			}
+            			else if(container instanceof FlowerBed && !container.ContainsPoint(clickPoint)) {
+            				((FlowerBed)container).removeChild(currentComponent);
             				break;
             			}
             			

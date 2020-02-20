@@ -26,7 +26,6 @@ public class Flower implements GardenComponent{
 		return circle;
 	}
 	
-	
 	@Override
 	public void move(double dx, double dy) {
 		circle.setCenterX(circle.getCenterX()+dx);
@@ -40,6 +39,21 @@ public class Flower implements GardenComponent{
 	
 	public Point2D getCurrentocation() {
 		return currentLocation;
+	}
+
+	@Override
+	public void setPosition(Point2D point) {
+		circle.setCenterX(point.getX());
+		circle.setCenterY(point.getY());
+		circle.setRadius(radius);
+		
+	}
+
+	@Override
+	public void setLineColor(Color color) {
+		circle.setStroke(color);
+		//circle.setFill(color);
+		
 	}
 
 }

@@ -21,7 +21,8 @@ public class FlowerBed implements GardenComponent{
 		rectangle.setWidth(width);
 		rectangle.setX(topLeft.getX());
 		rectangle.setY(topLeft.getY());
-		rectangle.setFill(Color.DARKGOLDENROD);
+		rectangle.setFill(null);
+		setLineColor(Color.DARKGOLDENROD);
 		
 	}
 	
@@ -48,14 +49,27 @@ public class FlowerBed implements GardenComponent{
 	
 	public void addChild(GardenComponent shape){
 		innerComponents.add(shape);
-		//shape.setLineColor(rectangleColor);
+		shape.setLineColor(rectangleColor);
 	}
 	
 	public void removeChild(GardenComponent shape){
 		if(innerComponents.contains(shape)){
 			innerComponents.remove(shape);
-			//shape.setLineColor(rectangleColor);
+			shape.setLineColor(rectangleColor);
 		}
+	}
+
+	@Override
+	public void setPosition(Point2D point) {
+		topLeft = point;
+		
+	}
+
+	@Override
+	public void setLineColor(Color color) {
+		rectangleColor = color;	
+		rectangle.setStroke(rectangleColor);
+		
 	}
 	
 }
