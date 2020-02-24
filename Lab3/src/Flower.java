@@ -54,6 +54,6 @@ public class Flower implements GardenComponent{
 		circle.setStroke(color);
 		//circle.setFill(color);
 		
-	}
-
+    }
 }
+
